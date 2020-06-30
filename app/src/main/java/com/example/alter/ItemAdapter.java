@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -50,9 +51,12 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_DELETE);
-                intent.setData(Uri.parse("package:"+item.getAppdetails()));
-                getContext().startActivity(intent);
+
+                Toast.makeText(getContext(),item.getAppname() + " Deteted ",Toast.LENGTH_SHORT).show();
+
+//                Intent intent = new Intent(Intent.ACTION_DELETE);
+//                intent.setData(Uri.parse("package:"+item.getAppdetails()));
+//                getContext().startActivity(intent);
 
             }
         });
