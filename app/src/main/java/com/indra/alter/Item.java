@@ -1,4 +1,4 @@
-package com.example.alter;
+package com.indra.alter;
 
 
 import android.graphics.drawable.Drawable;

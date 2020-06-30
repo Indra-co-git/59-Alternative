@@ -1,15 +1,19 @@
-package com.example.alter;
+package com.indra.alter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<Item> allapps;
     ListView listView;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         allapps = new ArrayList<>();
         listView = findViewById(R.id.appslist);
+
+        button = findViewById(R.id.click);
 
         installedapps();
 
@@ -43,10 +50,26 @@ public class MainActivity extends AppCompatActivity {
 
         listView.setAdapter(adapter);
 
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent intent = new Intent(MainActivity.this,AddingPage.class);
+                //intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.microsoft.office.officelens&hl=en_IN"));
+                startActivity(intent);
+            }
+        });
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
+                Toast.makeText(getBaseContext() ,"opening" + position,Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.microsoft.office.officelens&hl=en_IN"));
+                startActivity(intent);
 
             }
         });

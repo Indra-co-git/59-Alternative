@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "536922888840",
+    "firebase_url": "https://proxy-8cdbc.firebaseio.com",
+    "project_id": "proxy-8cdbc",
+    "storage_bucket": "proxy-8cdbc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536922888840:android:d5ebe3b3b049113877dd3d",
+        "android_client_info": {
+          "package_name": "com.indra.alter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536922888840-skhdm4828l67u7hd4onffk1609iob0db.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.indra.alter",
+            "certificate_hash": "d394e5ab38ae19b418705d71090d07834f25aa7e"
+          }
+        },
+        {
+          "client_id": "536922888840-au8u70e077phv3o3qh903ugk23tdl5at.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCizTDe_l0X9xtbgy-FWx8YleNOKLX8Mb8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536922888840-au8u70e077phv3o3qh903ugk23tdl5at.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
