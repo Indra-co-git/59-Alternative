@@ -15,6 +15,10 @@ public class App {
         alternativeurl = a;
     }
 
+    public void setAlternativeurl(String s)
+    {
+        alternativeurl = s;
+    }
 
     public String getAppname(){
         return appname;

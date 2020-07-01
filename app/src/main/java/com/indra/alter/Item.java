@@ -10,6 +10,9 @@ public class Item {
 
     Drawable appicon;
 
+    public  Item(){
+
+    }
     public Item(String n,String d)
     {
         appname=n;
@@ -23,6 +26,10 @@ public class Item {
         appicon=r;
     }
 
+    public void setAppdetails(String s)
+    {
+        appdetails = s;
+    }
 
     public String getAppdetails() {
         return appdetails;

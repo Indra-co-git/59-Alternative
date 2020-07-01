@@ -12,6 +12,7 @@
 
     android:text="click"
     android:id="@+id/click"
+      android:visibility="gone"
     />
 
   <Switch
@@ -19,7 +20,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:text="Select list"
-      android:hint="Apps Preset / Banned Apps"
+      android:layout_margin="10dp"
       android:textSize="30sp"/>
 
   <ListView

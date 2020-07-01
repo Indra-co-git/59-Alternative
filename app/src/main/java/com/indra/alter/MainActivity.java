@@ -155,7 +155,10 @@ public class MainActivity extends AppCompatActivity {
                         {
                             if(allapps.get(i).getAppname().toLowerCase().equals(bannedaps.get(j).getAppname().toLowerCase()))
                             {
-                                common.add(allapps.get(i));
+                                Item app= new Item();
+                                app=allapps.get(i);
+                                app.setAppdetails(bannedaps.get(j).getAppdetails());
+                                common.add(app);
                             }
                         }
                     }
