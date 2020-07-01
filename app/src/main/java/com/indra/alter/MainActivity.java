@@ -30,7 +30,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Item> allapps,bannedaps;
+    ArrayList<Item> allapps,bannedaps,common;
+  //  ArrayList<String> bannedAppsname,allappsname;
     ListView listView;
     Button button;
     Switch aSwitch;
@@ -42,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
 
         allapps = new ArrayList<>();
         bannedaps = new ArrayList<>();
+        common = new ArrayList<>();
+       // bannedAppsname = new ArrayList<>();
+       // allappsname = new ArrayList<>();
+
         aSwitch = findViewById(R.id.choice);
         listView = findViewById(R.id.appslist);
 
@@ -73,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     String alturl = ds.child("alternativeurl").getValue(String.class);
 
                     bannedaps.add(new Item(appname,alturl));
+                    //bannedAppsname.add(appname.toLowerCase().trim());
 
                 }
 
@@ -90,6 +96,13 @@ public class MainActivity extends AppCompatActivity {
         final ItemAdapter adapter = new ItemAdapter(this,R.layout.list_item,allapps);
 
         final ItemAdapter adapter1 = new ItemAdapter(this,R.layout.list_item,bannedaps);
+
+
+
+
+
+
+
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -115,8 +128,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        aSwitch.setText("Apps In your device");
         listView.setAdapter(adapter);
+        aSwitch.setText("All Apps In your device");
+
 
         aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -125,11 +139,32 @@ public class MainActivity extends AppCompatActivity {
                 {
                     listView.setAdapter(adapter1);
                     aSwitch.setText("Banned Appslist");
+                    Log.e("TAG",common.toString());
+                   // Log.e("TAG",bannedAppsname.toString());
                 }
                 else
                 {
-                    listView.setAdapter(adapter);
-                    aSwitch.setText("Apps In your device");
+                    Log.e("T",allapps.size()+" A");
+                   // Log.e("T",bannedAppsname.size()+" B");
+
+                    common.clear();
+
+                    for(int i=0;i<allapps.size();i++)
+                    {
+                        for(int j =0 ;j<bannedaps.size();j++)
+                        {
+                            if(allapps.get(i).getAppname().toLowerCase().equals(bannedaps.get(j).getAppname().toLowerCase()))
+                            {
+                                common.add(allapps.get(i));
+                            }
+                        }
+                    }
+
+                    ItemAdapter commonadapter = new ItemAdapter(MainActivity.this,R.layout.list_item,common);
+
+                    listView.setAdapter(commonadapter);
+                    aSwitch.setText("Banned Apps In your device");
+
                 }
             }
         });
@@ -161,7 +196,8 @@ public class MainActivity extends AppCompatActivity {
                 Drawable applogo =  packageInfo.applicationInfo.loadIcon(getPackageManager());
 
                 allapps.add(new Item(appName,apppackage,applogo));
-                Log.e("App Name", i + appName);
+               // allappsname.add(appName.toLowerCase().trim());
+               // Log.e("App Name", i + appName);
             }
 
 
