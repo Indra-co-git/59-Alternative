@@ -1,6 +1,8 @@
 package com.indra.alter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,23 +48,29 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         logo.setImageDrawable(item.getAppicon());
        // logo.setImageResource(item.getAppicon());
 
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Toast.makeText(getContext(),item.getAppname() + " Deteted ",Toast.LENGTH_SHORT).show();
-//
-////                Intent intent = new Intent(Intent.ACTION_DELETE);
-////                intent.setData(Uri.parse("package:"+item.getAppdetails()));
-////                getContext().startActivity(intent);
-//
-//
-//
-//
-//
-//
-//            }
-//        });
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //"https://play.google.com/store/apps/details?id=com.microsoft.office.officelens&hl=en_IN"
+                String url = "https://play.google.com/store/apps/details?id="+ item.getAppdetails()+"&hl=en_IN";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                //intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.microsoft.office.officelens&hl=en_IN"));
+                getContext().startActivity(intent);
+
+                Toast.makeText(getContext(),item.getAppname() + " Deteted ",Toast.LENGTH_SHORT).show();
+
+//                Intent intent = new Intent(Intent.ACTION_DELETE);
+//                intent.setData(Uri.parse("package:"+item.getAppdetails()));
+//                getContext().startActivity(intent);
+
+
+
+
+
+
+            }
+        });
 
         return convertView;
 

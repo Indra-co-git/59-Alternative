@@ -13,10 +13,21 @@
     android:text="click"
     android:id="@+id/click"
     />
+
+  <Switch
+      android:id="@+id/choice"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Select list"
+      android:hint="Apps Preset / Banned Apps"
+      android:textSize="30sp"/>
+
   <ListView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:id="@+id/appslist"
       />
+
+
 
 </LinearLayout>
